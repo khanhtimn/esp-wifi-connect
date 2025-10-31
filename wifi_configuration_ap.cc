@@ -925,18 +925,16 @@ void WifiConfigurationAp::Stop()
     // Bỏ destroy ap_netif_ ở đây để tránh làm mất handler khi provisioning manager vẫn còn reference.
 
     // 停止WiFi并重置模式
-    /*
-    esp_wifi_stop();
-    esp_wifi_deinit();
-    esp_wifi_set_mode(WIFI_MODE_NULL);
+    // esp_wifi_stop();
+    // esp_wifi_deinit();
+    // esp_wifi_set_mode(WIFI_MODE_NULL);
 
-    // 释放网络接口资源
-    if (ap_netif_)
-    {
-        esp_netif_destroy(ap_netif_);
-        ap_netif_ = nullptr;
-    }
-    */
+    // // 释放网络接口资源
+    // if (ap_netif_)
+    // {
+    //     esp_netif_destroy(ap_netif_);
+    //     ap_netif_ = nullptr;
+    // }
 
     ESP_LOGI(TAG, "Wifi configuration AP stopped");
 }
