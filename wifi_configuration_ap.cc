@@ -129,7 +129,7 @@ void WifiConfigurationAp::StartAccessPoint() {
   /************************************************************/
   /*          Đảm bảo event loop mặc định tồn tại             */
   /************************************************************/
-  esp_err_t err = esp_event_loop_create_default();
+  err = esp_event_loop_create_default();
   if (err != ESP_OK && err != ESP_ERR_INVALID_STATE) {
     ESP_ERROR_CHECK(err);
   }
@@ -166,7 +166,7 @@ void WifiConfigurationAp::StartAccessPoint() {
 
   // Initialize the WiFi stack in Access Point mode
   wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-  esp_err_t err = esp_wifi_init(&cfg);
+  err = esp_wifi_init(&cfg);
   if (err != ESP_OK) {
     if (err == ESP_ERR_WIFI_INIT_STATE) {
       ESP_LOGW(TAG, "esp_wifi_init called while already initialised");
@@ -189,7 +189,7 @@ void WifiConfigurationAp::StartAccessPoint() {
   ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA));
   ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP, &wifi_config));
   ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
-  esp_err_t err = esp_wifi_start();
+  err = esp_wifi_start();
   if (err != ESP_OK) {
     if (err == ESP_ERR_WIFI_CONN || err == ESP_ERR_WIFI_NOT_STOPPED) {
       ESP_LOGW(TAG, "esp_wifi_start returned %s", esp_err_to_name(err));
@@ -208,7 +208,7 @@ void WifiConfigurationAp::StartAccessPoint() {
 
   // 加载高级配置
   nvs_handle_t nvs;
-  esp_err_t err = nvs_open("wifi", NVS_READONLY, &nvs);
+  err = nvs_open("wifi", NVS_READONLY, &nvs);
   if (err == ESP_OK) {
     // 读取OTA URL
     char ota_url[256] = {0};
