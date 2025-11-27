@@ -1,0 +1,4 @@
+{
+  "clang-format.executable": "/Users/khanhtimn/esp/.espressif/tools/esp-clang/esp-19.1.2_20250312/esp-clang/bin/clang-format",
+  "C_Cpp.intelliSenseEngine": "default"
+}
